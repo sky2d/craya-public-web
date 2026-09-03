@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 const ENV = process.env.NEXT_PUBLIC_ENVIRONMENT!; // "local" | "preprod" | "production"
 // Domains
-const LOCAL_DEV_PORT = process.env.NEXT_PUBLIC_LOCAL_DEV_PORT || "3000";
 const PREPROD_BASE_DOMAIN = process.env.NEXT_PUBLIC_PREPROD_BASE_DOMAIN!;
 const PROD_BASE_DOMAIN = process.env.NEXT_PUBLIC_PROD_BASE_DOMAIN!;
 
@@ -40,8 +39,8 @@ export function middleware(request: NextRequest) {
   const isProdEnv = ENV === "production";
 
   // Root vs subdomain
-  let subdomain = hostParts.length >= 3 ? hostParts[0].toLowerCase() : null;
-  let isRootDomain = hostParts.length <= 2;
+  const subdomain = hostParts.length >= 3 ? hostParts[0].toLowerCase() : null;
+  const isRootDomain = hostParts.length <= 2;
 
   // 1. Handle redirect from /store/subdomain → subdomain.domain
   const storePathMatch = pathname.match(STORE_PATH_REGEX);

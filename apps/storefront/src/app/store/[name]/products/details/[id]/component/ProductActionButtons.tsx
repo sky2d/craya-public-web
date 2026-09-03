@@ -7,7 +7,6 @@ import { addOrUpdateCartItem } from "@/utils/cart";
 import { debounce } from "@/utils/generic";
 import { ButtonType, IconPosition } from "components/src/interfaces/Buttons";
 import { Button, Button2, showPopup } from "components/src/minor";
-import { navigateToPath } from "components/src/utils/domain";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo, useState } from "react";
 import { BsCart2 } from "react-icons/bs";
@@ -50,7 +49,7 @@ const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({ onLike, pri
         setCartLoading(false);
       }
     },
-    [cart, selectedCartItem, addToCart, setCartLoading],
+    [cart, selectedCartItem, addToCart, setCartLoading, router],
   );
 
   const debouncedAddToCart = useMemo(() => debounce(() => handleCartAction(false), 500), [handleCartAction]);

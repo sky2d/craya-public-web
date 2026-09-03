@@ -7,7 +7,6 @@ import { useModalContext } from "@/provider/ModalProvider";
 import { Store } from "components/src/interfaces";
 import { NavBar } from "components/src/major/NavBar";
 import { Overlay } from "components/src/major/wrapper/Overlay";
-import { navigateToPath } from "components/src/utils/domain";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";

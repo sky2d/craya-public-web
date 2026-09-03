@@ -4,7 +4,6 @@ import { OtpVerification, resendOTP, sendOTP } from "@/services/auth/otpIntegrat
 import CrayoLogo from "components/src/icons/iconFiles/krayaSvg/BLACK_1.svg";
 import { BaseModal } from "components/src/major/BaseModal";
 import { showPopup } from "components/src/minor";
-import { navigateToPath } from "components/src/utils/domain";
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";

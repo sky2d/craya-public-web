@@ -20,6 +20,12 @@ export function middleware(request: NextRequest) {
   const hostParts = currentHost.split(".");
 
   const runningOnLocalhost = currentHost === "localhost" || currentHost === "127.0.0.1" || ENV === "local";
+  const isVercelPreview = currentHost.endsWith(".vercel.app");
+
+  // Bypass subdomain routing entirely for vercel preview URLs
+  if (isVercelPreview) {
+    return NextResponse.next();
+  }
 
   // Simple local development bypass
   if (runningOnLocalhost) {

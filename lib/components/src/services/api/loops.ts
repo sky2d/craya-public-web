@@ -7,14 +7,16 @@ export const getLoops = (storeId: string) => {
   });
 };
 
-export const createLoop = (loop: Partial<Loop>) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const createLoop = (loop: any) => {
   return postRequest<Loop>({
     endpoint: `/loops`,
     body: loop,
   });
 };
 
-export const updateLoop = (loop: Partial<Loop> & { id: string }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const updateLoop = (loop: any) => {
   return putRequest<Loop>({
     endpoint: `/loops/${loop.id}`,
     body: loop,

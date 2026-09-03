@@ -1,6 +1,6 @@
 "use client";
 
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Session from "supertokens-web-js/recipe/session";
 import { LoadingWithGif } from "../minor/Loading";

@@ -149,7 +149,12 @@ export const ImageUpload: React.FC<SingleImageUploadProps> = ({
           )}
         </div>
       ) : fileType === "video" ? (
-        <Upload beforeUpload={beforeUpload} showUploadList={false} accept="video/*" className="[&_.ant-upload]:block [&_.ant-upload]:h-full [&_.ant-upload]:w-full">
+        <Upload
+          beforeUpload={beforeUpload}
+          showUploadList={false}
+          accept="video/*"
+          className="[&_.ant-upload]:block [&_.ant-upload]:h-full [&_.ant-upload]:w-full"
+        >
           <div
             className={`hover:border-gray-400 hover:text-gray-700 h-full w-full rounded-[14px] ${
               !componentType ? "border-[0.5px] border-dashed" : ""
@@ -188,7 +193,12 @@ export const ImageUpload: React.FC<SingleImageUploadProps> = ({
             },
           }}
         >
-          <Upload beforeUpload={beforeUpload} showUploadList={false} accept="image/*" className="[&_.ant-upload]:block [&_.ant-upload]:h-full [&_.ant-upload]:w-full">
+          <Upload
+            beforeUpload={beforeUpload}
+            showUploadList={false}
+            accept="image/*"
+            className="[&_.ant-upload]:block [&_.ant-upload]:h-full [&_.ant-upload]:w-full"
+          >
             <div
               className={`hover:border-gray-400 hover:text-gray-700 h-full w-full rounded-[14px] ${
                 !componentType ? "border-[0.5px] border-dashed" : ""

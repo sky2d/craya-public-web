@@ -8,7 +8,10 @@ const client = jwksClient({
 });
 async function getAccessToken() {
   const cookiesStore = await cookies();
-  const allCookies = cookiesStore.getAll().map(c => `${c.name}=${c.value}`).join('; ');
+  const allCookies = cookiesStore
+    .getAll()
+    .map(c => `${c.name}=${c.value}`)
+    .join("; ");
   console.log(`[SSR Auth] Received cookies: ${allCookies}`);
   // Supertokens standard cookie is sAccessToken. Also check st-access-token just in case.
   const token = cookiesStore.get("sAccessToken")?.value || cookiesStore.get("st-access-token")?.value;

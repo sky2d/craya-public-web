@@ -52,17 +52,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
     return <TryRefreshComponent key={Date.now()} />;
   }
 
-  if (!accessToken || !hasToken) {
-    return (
-      <ErrorPage
-        title="Please login"
-        statusCode={403}
-        description="You are not authorized to review this order. Only customers who have received the product can leave a review."
-      />
-    );
-  }
-
-  const { data: searchedProducts = [], error: allProductsError } = await fetchProducts(searchParams, accessToken);
+  const { data: searchedProducts = [], error: allProductsError } = await fetchProducts(searchParams, accessToken || "");
   return (
     <div className="flex h-full w-full justify-center overflow-x-hidden">
       <AllProduct fetchedProducts={searchedProducts as SimpleProduct[]} errorMessage={allProductsError} />

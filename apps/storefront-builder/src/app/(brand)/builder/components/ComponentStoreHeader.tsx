@@ -5,7 +5,6 @@ import { useStoreContext } from "@/provider/StoreProvider";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { Button2, showPopup } from "components/src/minor";
 import { updateComponentPositions, updateStore } from "components/src/services/api";
-import { triggerBuilderOnboardingEmail } from "components/src/services/api/emailManagement";
 import { useRouter } from "next/navigation";
 
 export const ComponentStoreHeader = () => {
@@ -16,7 +15,6 @@ export const ComponentStoreHeader = () => {
 
   const handleNextButton = async () => {
     if (store.isOnboarding) {
-      await triggerBuilderOnboardingEmail(store.user!.id!, "STEP_3_SUCCESS");
       const updatedResponse = await updateStore({ ...store, isOnboarding: false });
       if (updatedResponse.data) {
         setStore(updatedResponse.data);

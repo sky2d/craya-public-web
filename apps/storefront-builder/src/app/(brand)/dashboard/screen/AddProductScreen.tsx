@@ -37,7 +37,7 @@ const AddProductScreen = () => {
         <HeaderSection />
       </div>
       <div className="h-[90%] px-3 pb-2">
-        <WhiteBackgroundWrapper className=" h-full overflow-y-auto">
+        <WhiteBackgroundWrapper className="h-full overflow-y-auto">
           <ModalBox
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}

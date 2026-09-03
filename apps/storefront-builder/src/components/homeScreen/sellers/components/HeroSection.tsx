@@ -19,7 +19,7 @@ export const HeroSection = () => {
               {lines.map((letter, index) => (
                 <span
                   key={index}
-                  className="animate-pop-up inline-block text-black-dark1"
+                  className="inline-block animate-pop-up text-black-dark1"
                   style={{
                     animationDelay: `${index * 0.07}s`,
                     opacity: 0, // Start with opacity 0 before animation begins
@@ -33,7 +33,7 @@ export const HeroSection = () => {
               {subText.map((letter, index) => (
                 <span
                   key={index}
-                  className="animate-pop-up inline-block text-brand-color1"
+                  className="inline-block animate-pop-up text-brand-color1"
                   style={{
                     animationDelay: `${index * 0.07}s`,
                     opacity: 0,

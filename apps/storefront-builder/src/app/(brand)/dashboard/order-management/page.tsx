@@ -1,10 +1,10 @@
-import OrdersDashboard from "./components/OrdersDashboard";
 import { TryRefreshComponent } from "components/src/auth/RefreshClient";
 import { getSSRSessionHelper } from "components/src/auth/session";
 import { DeliveryStatusEnum } from "components/src/interfaces/orders";
 import { ErrorPage } from "components/src/module/ErrorPage";
 import { getOrders } from "components/src/services/api/orders";
 import { redirect } from "next/navigation";
+import OrdersDashboard from "./components/OrdersDashboard";
 import { StatsGrid } from "./components/StatsGrid";
 
 const OrderManagement = async () => {

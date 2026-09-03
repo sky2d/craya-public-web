@@ -33,7 +33,7 @@ const DraggableComponent: React.FC<{
       {...listeners}
       key={type}
       style={style}
-      className={`"cursor-pointer" mt-3 rounded-lg border-2 border-brand-color1 bg-white-light4 `}
+      className={`"cursor-pointer" mt-3 rounded-lg border-2 border-brand-color1 bg-white-light4`}
     >
       <DraggedItem type={type} />
     </div>

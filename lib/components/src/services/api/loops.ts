@@ -7,14 +7,14 @@ export const getLoops = (storeId: string) => {
   });
 };
 
-export const createLoop = (loop: Partial<Loop>) => {
+export const createLoop = (loop: any) => {
   return postRequest<Loop>({
     endpoint: `/loops`,
     body: loop,
   });
 };
 
-export const updateLoop = (loop: Partial<Loop>) => {
+export const updateLoop = (loop: any) => {
   return putRequest<Loop>({
     endpoint: `/loops/${loop.id}`,
     body: loop,

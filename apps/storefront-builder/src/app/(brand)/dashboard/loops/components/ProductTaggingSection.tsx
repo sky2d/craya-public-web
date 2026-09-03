@@ -16,14 +16,7 @@ export const ProductTaggingSection: React.FC<ProductTaggingSectionProps> = ({ lo
 
   return (
     <div className="bg-gray-50 flex w-3/5 flex-col justify-between p-4">
-      <Modal
-        title="Loop Upload"
-        open={isOpenLoopDetail}
-        centered
-        onCancel={() => setIsOpenLoopDetail(false)}
-        width={800}
-        footer={[]}
-      >
+      <Modal title="Loop Upload" open={isOpenLoopDetail} centered onCancel={() => setIsOpenLoopDetail(false)} width={800} footer={[]}>
         <LoopDetail loop={loop} onClose={() => setIsOpenLoopDetail(false)} />
       </Modal>
 
@@ -45,4 +38,3 @@ export const ProductTaggingSection: React.FC<ProductTaggingSectionProps> = ({ lo
     </div>
   );
 };
-

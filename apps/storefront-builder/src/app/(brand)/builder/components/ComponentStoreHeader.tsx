@@ -32,7 +32,7 @@ export const ComponentStoreHeader = () => {
   };
 
   return (
-    <div className="my-3 w-full mr-4">
+    <div className="my-3 mr-4 w-full">
       <Button2
         handleClick={handleNextButton}
         label={storefrontComponentLength > 0 ? "Publish" : "Add Elements On your Store Front"}

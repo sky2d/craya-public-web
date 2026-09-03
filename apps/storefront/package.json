@@ -10,10 +10,13 @@
     "pretty": "prettier --write ."
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.2",
     "@next/bundle-analyzer": "^15.5.2",
     "@types/mixpanel-browser": "^2.51.0",
+    "antd": "^5.23.1",
     "components": "*",
     "date-fns": "^4.0.0",
+    "dayjs": "^1.11.23",
     "lodash": "^4.17.21",
     "mixpanel-browser": "^2.59.0",
     "next": "14.2.4",
@@ -23,7 +26,8 @@
     "react-paginate": "^8.2.0",
     "sharp": "^0.33.5",
     "supertokens-auth-react": "^0.43.0",
-    "supertokens-web-js": "^0.12.0"
+    "supertokens-web-js": "^0.12.0",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",

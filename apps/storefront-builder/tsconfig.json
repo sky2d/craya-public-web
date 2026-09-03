@@ -21,6 +21,16 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "svg.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/screen/screen", "../../lib/components/src/minor/ImageUpload.tsx", "../../lib/components/src/services/storefront/validateHexCode.ts", "../../lib/components/src/utils/MixpanelTracking.ts"],
+  "include": [
+    "next-env.d.ts",
+    "svg.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/dashboard/screen/screen",
+    "../../lib/components/src/minor/ImageUpload.tsx",
+    "../../lib/components/src/services/storefront/validateHexCode.ts",
+    "../../lib/components/src/utils/MixpanelTracking.ts"
+  ],
   "exclude": ["node_modules"]
 }

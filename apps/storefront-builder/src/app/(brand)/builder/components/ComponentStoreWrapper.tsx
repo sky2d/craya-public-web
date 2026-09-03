@@ -190,7 +190,7 @@ export const ComponentStoreWrapper: React.FC = () => {
   };
   const Component = newStorefrontComponent ? builderComponentMapping.get(newStorefrontComponent.type) : null;
   return (
-    <div className="flex items-center justify-center h-full pl-4">
+    <div className="flex h-full items-center justify-center pl-4">
       <ModalBox
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}

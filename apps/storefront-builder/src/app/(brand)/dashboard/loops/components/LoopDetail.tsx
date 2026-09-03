@@ -1,7 +1,7 @@
 import { useLoopsContext } from "@/provider/LoopsProvider";
 import { useProductContext } from "@/provider/ProductProvider";
 import { Drawer } from "antd";
-import { Loop, LoopStatus, Presence, Product, SimpleProduct } from "components/src/interfaces";
+import { Loop, LoopStatus, Presence, SimpleProduct } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { Button2, ImageUpload, showPopup } from "components/src/minor";
 import { createLoop, updateLoop } from "components/src/services/api/loops";
@@ -31,8 +31,9 @@ export const LoopDetail: React.FC<LoopDetailProps> = ({ loop, onClose }) => {
 
   const handleSave = async () => {
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { products, video, ...restLoopData } = selectedLoop;
-      const payload: any = {
+      const payload: Record<string, unknown> = {
         ...restLoopData,
         videoId: selectedLoop.video?.id || selectedLoop.videoId,
         products: selectedLoop.products?.map(p => p.id || "") || [],
@@ -65,7 +66,7 @@ export const LoopDetail: React.FC<LoopDetailProps> = ({ loop, onClose }) => {
         }
       }
       onClose();
-    } catch (err) {
+    } catch {
       showPopup("error", "Failed to save loop");
     }
   };
@@ -131,7 +132,7 @@ export const LoopDetail: React.FC<LoopDetailProps> = ({ loop, onClose }) => {
           <div>
             <label className="text-gray-600 mb-2 block font-semibold">Description :</label>
             <textarea
-              className="w-full rounded-xl border border-gray-200 bg-white-light5 p-3 text-sm focus:border-brand-color1 focus:outline-none"
+              className="border-gray-200 w-full rounded-xl border bg-white-light5 p-3 text-sm focus:border-brand-color1 focus:outline-none"
               rows={4}
               placeholder="Enter a description for this loop..."
               value={selectedLoop.description || ""}
@@ -186,9 +187,7 @@ export const LoopDetail: React.FC<LoopDetailProps> = ({ loop, onClose }) => {
               {selectedLoop.products?.map(product => (
                 <label key={product.id} className="flex cursor-pointer items-center">
                   <div
-                    className={`mr-3 flex h-6 w-6 items-center justify-center rounded-md border-2 transition-all ${
-                      true ? "border-brand-color1 bg-brand-color1" : "border-gray-200 bg-gray-100"
-                    }`}
+                    className="mr-3 flex h-6 w-6 items-center justify-center rounded-md border-2 transition-all border-brand-color1 bg-brand-color1"
                     onClick={() => handleProductClick(product)}
                   >
                     <svg className="h-4 w-4 text-white-light4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

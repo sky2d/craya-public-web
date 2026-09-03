@@ -191,7 +191,7 @@ export const CouponDetail = ({ coupon }: { coupon: Coupon }) => {
               <Label>Expiry Date (Optional)</Label>
               <input
                 type="date"
-                className="w-full rounded-xl border border-gray-200 bg-white-light5 p-3 text-sm focus:border-brand-color1 focus:outline-none"
+                className="border-gray-200 w-full rounded-xl border bg-white-light5 p-3 text-sm focus:border-brand-color1 focus:outline-none"
                 value={selectedCoupon.expiryDate ? new Date(selectedCoupon.expiryDate).toISOString().split("T")[0] : ""}
                 onChange={e => setSelectedCoupon({ ...selectedCoupon, expiryDate: e.target.value ? new Date(e.target.value).toISOString() : "" })}
               />

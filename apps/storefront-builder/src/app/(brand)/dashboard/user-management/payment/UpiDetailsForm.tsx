@@ -18,10 +18,10 @@ export const UpiDetailsForm = () => {
         </div>
         <div className="flex flex-col gap-1">
           <Label>Beneficiary Name :</Label>
-          <InputField2 
-            dataIndex={0} 
-            type={InputFieldType.TEXT} 
-            placeholder="Beneficiary Name" 
+          <InputField2
+            dataIndex={0}
+            type={InputFieldType.TEXT}
+            placeholder="Beneficiary Name"
             value={bankDetails?.bankAccountHolder || ""}
             onChange={e => setBankDetails?.({ ...(bankDetails as BankPayment), bankAccountHolder: e.target.value, paymentType: PaymentType.UPI })}
             errorMessage={bankErrors?.accountHolder}

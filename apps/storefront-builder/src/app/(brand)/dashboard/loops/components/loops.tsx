@@ -2,23 +2,21 @@
 
 import { WhiteBackgroundWrapper } from "@/components/dashboard/WhiteBackgroundWrapper";
 import { INITIAL_LOOP_DATA, useLoopsContext } from "@/provider/LoopsProvider";
+import { Modal } from "antd";
 import { LoopStatus } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { VideoCard } from "components/src/major/videos/VideoCard";
 import { Button2 } from "components/src/minor";
-import { Modal } from "antd";
 import { useState } from "react";
-import { ProductTaggingSection } from "./ProductTaggingSection";
 import { LoopDetail } from "./LoopDetail";
+import { ProductTaggingSection } from "./ProductTaggingSection";
 
 export const Loops = () => {
   const { loops } = useLoopsContext();
   const [activeTab, setActiveTab] = useState("Active");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-  const filteredLoops = loops.filter(
-    loop => loop.status === (activeTab === "Active" ? LoopStatus.ACTIVE : LoopStatus.ARCHIVE)
-  );
+  const filteredLoops = loops.filter(loop => loop.status === (activeTab === "Active" ? LoopStatus.ACTIVE : LoopStatus.ARCHIVE));
 
   return (
     <div className="p-1">

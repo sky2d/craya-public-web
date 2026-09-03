@@ -1,4 +1,3 @@
-import { useProductContext } from "@/provider/ProductProvider";
 import { Modal } from "antd";
 import { Loop } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
@@ -12,7 +11,6 @@ interface ProductTaggingSectionProps {
 
 export const ProductTaggingSection: React.FC<ProductTaggingSectionProps> = ({ loop }) => {
   const [isOpenLoopDetail, setIsOpenLoopDetail] = useState(false);
-  const { products } = useProductContext();
 
   return (
     <div className="bg-gray-50 flex w-3/5 flex-col justify-between p-4">

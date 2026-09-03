@@ -33,6 +33,7 @@
     "lib/*"
   ],
   "devDependencies": {
+    "@types/lodash": "^4.17.25",
     "husky": "^9.1.5"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 import { Label } from "@/components/homeScreen/sellers/components/Label";
 import { useUserContext } from "@/provider/UserProvider";
-import { PaymentType } from "components/src/interfaces";
+import { BankPayment, PaymentType } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { InputFieldType } from "components/src/interfaces/InputField";
 import { Button2, InputField2 } from "components/src/minor";

@@ -15,9 +15,9 @@ const DeliveryPage = () => {
 
   const handleChange = useCallback(
     (field: keyof Address) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setStorePickupAddress(prev => ({ ...(prev || {}), [field]: e.target.value }) as Address);
+      setStorePickupAddress({ ...(storePickupAddress || {}), [field]: e.target.value } as Address);
     },
-    [setStorePickupAddress],
+    [setStorePickupAddress, storePickupAddress],
   );
 
   const addressFields = [

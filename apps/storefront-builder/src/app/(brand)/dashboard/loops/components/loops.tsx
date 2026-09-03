@@ -3,7 +3,7 @@
 import { WhiteBackgroundWrapper } from "@/components/dashboard/WhiteBackgroundWrapper";
 import { INITIAL_LOOP_DATA, useLoopsContext } from "@/provider/LoopsProvider";
 import { Modal } from "antd";
-import { LoopStatus } from "components/src/interfaces";
+import { Loop, LoopStatus } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { VideoCard } from "components/src/major/videos/VideoCard";
 import { Button2 } from "components/src/minor";
@@ -75,7 +75,7 @@ export const Loops = () => {
             <div 
               key={loop.id} 
               className="flex h-[400px] overflow-hidden rounded-2xl border border-white-light1 shadow-md relative group"
-              onMouseEnter={() => setHoveredLoopId(loop.id)}
+              onMouseEnter={() => setHoveredLoopId(loop.id || null)}
               onMouseLeave={() => setHoveredLoopId(null)}
             >
               <div className="relative aspect-[0.665] flex-shrink-0 cursor-pointer">

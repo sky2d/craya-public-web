@@ -184,7 +184,7 @@ export const StoreProvider = ({ children, initialStoreData }: StoreProviderProps
         document.cookie = `storeId=${currentStoreId}; path=/; SameSite=Lax`;
       }
     };
-    
+
     initStore();
   }, [initialStoreData]);
 

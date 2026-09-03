@@ -53,9 +53,11 @@ interface StoreContextType {
 
 const StoreContext = createContext({});
 
+import { fetchStores } from "components/src/services/api";
+
 interface StoreProviderProps {
   children: ReactNode;
-  initialStoreData: Store;
+  initialStoreData?: Store;
 }
 
 export const INITIAL_STORE_DATA: Store = {
@@ -157,17 +159,34 @@ export const StoreProvider = ({ children, initialStoreData }: StoreProviderProps
   };
 
   useEffect(() => {
-    const storeId = initialStoreData?.id;
-    if (!storeId) return;
+    const initStore = async () => {
+      let currentStoreId = initialStoreData?.id;
 
-    // Get existing storeId from cookies
-    const cookieString = document.cookie.split("; ").find(row => row.startsWith("storeId="));
-    const existingStoreId = cookieString ? cookieString.split("=")[1] : null;
+      if (!initialStoreData) {
+        setStoreLoading(true);
+        const { data, error } = await fetchStores();
+        if (data && data.length > 0) {
+          setStore(data[0]);
+          currentStoreId = data[0].id;
+        } else if (error) {
+          console.error("Failed to fetch stores:", error);
+        }
+        setStoreLoading(false);
+      }
 
-    if (existingStoreId !== storeId) {
-      document.cookie = `storeId=${storeId}; path=/; SameSite=Lax`;
-    }
-  }, []);
+      if (!currentStoreId) return;
+
+      // Get existing storeId from cookies
+      const cookieString = document.cookie.split("; ").find(row => row.startsWith("storeId="));
+      const existingStoreId = cookieString ? cookieString.split("=")[1] : null;
+
+      if (existingStoreId !== currentStoreId) {
+        document.cookie = `storeId=${currentStoreId}; path=/; SameSite=Lax`;
+      }
+    };
+    
+    initStore();
+  }, [initialStoreData]);
 
   const value: StoreContextType = {
     storeLoading,

@@ -1,7 +1,7 @@
 import { WhiteBackgroundWrapper } from "@/components/wrapper/WhiteBackgroundWrapper";
 import type { ProgressProps } from "antd";
 import { Progress } from "antd";
-import { Store } from "antd/es/form/interface";
+import type { Store } from "antd/es/form/interface";
 import ReviewImage from "components/src/icons/iconFiles/ReviewImage.svg";
 import { Review } from "components/src/interfaces";
 import Image from "next/image";

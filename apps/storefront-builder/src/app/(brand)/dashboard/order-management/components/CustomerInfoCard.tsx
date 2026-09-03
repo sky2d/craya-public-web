@@ -1,5 +1,5 @@
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
-import Avatar from "antd/es/avatar/avatar";
+import { Avatar } from "antd";
 import { Address, User } from "components/src/interfaces";
 
 interface CustomerInfoCardProps {

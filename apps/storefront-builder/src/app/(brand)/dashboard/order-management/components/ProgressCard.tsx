@@ -1,5 +1,5 @@
 import { DownOutlined } from "@ant-design/icons";
-import Card from "antd/es/card/Card";
+import { Card } from "antd";
 
 const ProgressCard = () => (
   <Card

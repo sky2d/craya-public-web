@@ -1,4 +1,4 @@
-import Button from "antd/es/button";
+import { Button } from "antd";
 import { ReactNode } from "react";
 import { ButtonType, IconPosition } from "../interfaces/Buttons";
 

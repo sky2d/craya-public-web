@@ -1,6 +1,7 @@
 "use client";
 
-import TextArea from "antd/es/input/TextArea";
+import { Input } from "antd";
+const { TextArea } = Input;
 import { MdErrorOutline } from "react-icons/md";
 
 interface TextAreaFieldProps {

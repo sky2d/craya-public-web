@@ -89,7 +89,11 @@ const CheckoutScreen = () => {
         {cart && cart.cartItems?.length ? (
           <div className="flex w-full flex-col justify-center lg:flex-row">
             <div className="my-4 flex w-full max-w-[50em] flex-col items-center p-2">
-              {cart.cartItems?.filter(item => item?.id && item?.product).map(cartItem => <CartItemCard key={cartItem.id} cartItem={cartItem} />)}
+              {cart.cartItems
+                ?.filter(item => item?.id && item?.product)
+                .map(cartItem => (
+                  <CartItemCard key={cartItem.id} cartItem={cartItem} />
+                ))}
             </div>
             {(cart?.cartItems ?? []).length > 0 && (
               <div className="w-full p-2">

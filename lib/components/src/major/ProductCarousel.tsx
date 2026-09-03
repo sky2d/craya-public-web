@@ -1,5 +1,5 @@
-import type { CarouselRef } from "antd/es/carousel";
 import { Carousel } from "antd";
+import type { CarouselRef } from "antd/es/carousel";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { CreateProductSku } from "../interfaces";

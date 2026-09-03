@@ -72,17 +72,19 @@ export const Loops = () => {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredLoops.map(loop => (
-            <div 
-              key={loop.id} 
+            <div
+              key={loop.id}
               className="flex h-[400px] overflow-hidden rounded-2xl border border-white-light1 shadow-md relative group"
               onMouseEnter={() => setHoveredLoopId(loop.id || null)}
               onMouseLeave={() => setHoveredLoopId(null)}
             >
               <div className="relative aspect-[0.665] flex-shrink-0 cursor-pointer">
                 <VideoCard loop={loop} isPlaying={hoveredLoopId === loop.id} />
-                
+
                 {/* Play Button Overlay on Hover */}
-                <div className={`pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredLoopId === loop.id ? 'opacity-100' : 'opacity-0'}`}>
+                <div
+                  className={`pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredLoopId === loop.id ? "opacity-100" : "opacity-0"}`}
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white-light4 shadow-lg backdrop-blur-sm">
                     <svg className="ml-1 h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
@@ -92,7 +94,7 @@ export const Loops = () => {
 
                 <div className="absolute bottom-0 mb-2 flex w-full items-center justify-center space-x-2">
                   <button
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       handleEditClick(loop);
                     }}
@@ -102,14 +104,18 @@ export const Loops = () => {
                   </button>
                   <button
                     className={`rounded-lg px-4 py-1 text-sm font-semibold transition-all duration-200 ${
-                      loop.status === LoopStatus.ACTIVE ? "bg-brand-color1/80 text-white shadow-sm backdrop-blur-sm" : "bg-black/30 text-white/50 backdrop-blur-sm"
+                      loop.status === LoopStatus.ACTIVE
+                        ? "bg-brand-color1/80 text-white shadow-sm backdrop-blur-sm"
+                        : "bg-black/30 text-white/50 backdrop-blur-sm"
                     }`}
                   >
                     Active
                   </button>
                   <button
                     className={`rounded-lg px-4 py-1 text-sm font-semibold transition-all duration-200 ${
-                      loop.status === LoopStatus.ARCHIVE ? "bg-brand-color1/80 text-white shadow-sm backdrop-blur-sm" : "bg-black/30 text-white/50 backdrop-blur-sm"
+                      loop.status === LoopStatus.ARCHIVE
+                        ? "bg-brand-color1/80 text-white shadow-sm backdrop-blur-sm"
+                        : "bg-black/30 text-white/50 backdrop-blur-sm"
                     }`}
                   >
                     Archive

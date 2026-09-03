@@ -1,0 +1,49 @@
+name: PR Lint & Build Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+      - preproduction
+      - production
+
+jobs:
+  storefront:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run lint:sf
+        run: npm run lint:sf
+
+      - name: Run build:sf
+        run: npm run build:sf
+
+  storefront-builder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run lint:sfb
+        run: npm run lint:sfb
+
+      - name: Run build:sfb
+        run: npm run build:sfb

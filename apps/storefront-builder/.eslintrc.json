@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"]
+      }
+    ]
+  }
+}

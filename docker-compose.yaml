@@ -1,0 +1,70 @@
+services:
+  web-sf:
+    build:
+      context: .
+      dockerfile: apps/storefront/Dockerfile
+      args:
+        API_DOMAIN: https://preprod-api.craya.store
+        NEXT_PUBLIC_API_DOMAIN: https://preprod-api.craya.store
+        NEXT_PUBLIC_WEB_DOMAIN: https://craya.xyz
+        NEXT_PUBLIC_MIXPANEL_TOKEN: 37947962d8b0b5510700742002b4b2f5
+        NEXT_PUBLIC_BASE_URL: https://craya-public-dev.s3.ap-south-1.amazonaws.com
+        NEXT_PUBLIC_OTP_TOKEN: 426185T5A5M4s3Oq67efe9ffP1
+        NEXT_PUBLIC_OTP_WIDGET_ID: 3564646e7046373336323430
+        NEXT_PUBLIC_RAZORPAY_KEY_ID: rzp_test_K0JCwOHpcTZBeb
+        NEXT_PUBLIC_ST_CONNECTION_URL: http://52.66.246.209:3567/supertokens
+        NEXT_PUBLIC_ENVIRONMENT: preprod
+        NEXT_PUBLIC_PREPROD_BASE_DOMAIN: craya.xyz
+
+    networks:
+      - craya_network
+    ports:
+      - 5000:5000
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      API_DOMAIN: https://preprod-api.craya.store
+      NEXT_PUBLIC_API_DOMAIN: https://preprod-api.craya.store
+      NEXT_PUBLIC_WEB_DOMAIN: https://craya.xyz
+      NEXT_PUBLIC_MIXPANEL_TOKEN: 37947962d8b0b5510700742002b4b2f5
+      NEXT_PUBLIC_BASE_URL: https://craya-public-dev.s3.ap-south-1.amazonaws.com
+      NEXT_PUBLIC_OTP_TOKEN: 426185T5A5M4s3Oq67efe9ffP1
+      NEXT_PUBLIC_OTP_WIDGET_ID: 3564646e7046373336323430
+      NEXT_PUBLIC_RAZORPAY_KEY_ID: rzp_test_K0JCwOHpcTZBeb
+      NEXT_PUBLIC_ST_CONNECTION_URL: http://52.66.246.209:3567/supertokens
+      NEXT_PUBLIC_ENVIRONMENT: preprod
+      NEXT_PUBLIC_PREPROD_BASE_DOMAIN: craya.xyz
+    restart: unless-stopped
+
+  web-sfb:
+    build:
+      context: .
+      dockerfile: apps/storefront-builder/Dockerfile
+      args:
+        API_DOMAIN: https://preprod-api.craya.store
+        NEXT_PUBLIC_API_DOMAIN: https://preprod-api.craya.store
+        NEXT_PUBLIC_WEB_DOMAIN: https://preprod.craya.store
+        NEXT_PUBLIC_BRAND_DOMAIN: https://preprod-brand.craya.store
+        NEXT_PUBLIC_OTP_TOKEN: 426185T5A5M4s3Oq67efe9ffP1
+        NEXT_PUBLIC_OTP_WIDGET_ID: 3564646e7046373336323430
+        NEXT_PUBLIC_ST_CONNECTION_URL: http://52.66.246.209:3567/supertokens
+
+    networks:
+      - craya_network
+    ports:
+      - 8000:8000
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      API_DOMAIN: https://preprod-api.craya.store
+      NEXT_PUBLIC_API_DOMAIN: https://preprod-api.craya.store
+      NEXT_PUBLIC_WEB_DOMAIN: https://preprod.craya.store
+      NEXT_PUBLIC_BRAND_DOMAIN: https://preprod-brand.craya.store
+      NEXT_PUBLIC_OTP_TOKEN: 426185T5A5M4s3Oq67efe9ffP1
+      NEXT_PUBLIC_OTP_WIDGET_ID: 3564646e7046373336323430
+      NEXT_PUBLIC_ST_CONNECTION_URL: http://52.66.246.209:3567/supertokens
+    restart: unless-stopped
+
+networks:
+  craya_network:
+    external: true

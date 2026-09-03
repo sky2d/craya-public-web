@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient {
+  background: linear-gradient(90deg, #B2B7F1, #7C54E9, #F2D012, #B2B7F1);
+  background-size: 200% 100%;
+  animation: gradientMove 3s infinite linear;
+  /* filter: blur(4px); */
+  opacity: 0.8;
+}
+
+* {
+  scrollbar-width: thin;
+  /* For Firefox */
+  scrollbar-color: #7c54e9 #f2f2f5;
+  /* Thumb and track colors */
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #7c54e9;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #5a3ecb;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f2f2f5;
+  border-radius: 8px;
+}
+
+/* .ant-upload {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+} */

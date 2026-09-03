@@ -1,0 +1,7 @@
+export const otpConfig = {
+  widgetId: process.env.OTP_WIDGET_ID,
+  tokenAuth: process.env.OTP_TOKEN,
+  //   identifier: "<enter mobile number/email here> (optional)",
+  exposeMethods: true,
+  captchaRenderId: "",
+};

@@ -1,0 +1,45 @@
+{
+  "name": "storefront-builder",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 8080",
+    "lint": "tsc --noEmit && next lint",
+    "pretty": "prettier --write ."
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@uiw/color-convert": "^2.3.4",
+    "@uiw/react-color-sketch": "^2.3.4",
+    "components": "*",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-image-crop": "^11.0.7",
+    "sharp": "^0.33.5",
+    "supertokens-auth-react": "^0.43.0",
+    "supertokens-web-js": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.0.0",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

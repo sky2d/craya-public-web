@@ -1,0 +1,55 @@
+{
+  "name": "kraya-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:sf": "npm run dev --workspace=apps/storefront",
+    "dev:sfb": "npm run dev --workspace=apps/storefront-builder",
+    "lint:sf": "npm run lint --workspace=apps/storefront",
+    "lint:sfb": "npm run lint --workspace=apps/storefront-builder",
+    "lint:comp": "npm run lint --workspace=lib/components",
+    "lint:all": "npm run lint:sf && npm run lint:sfb && npm run lint:comp",
+    "build:sf": "npm run build --workspace=apps/storefront",
+    "build:sfb": "npm run build --workspace=apps/storefront-builder",
+    "build:all": "npm run build:sf && npm run build:sfb",
+    "start:sf": "npm run start --workspace=apps/storefront",
+    "start:sfb": "npm run start --workspace=apps/storefront-builder",
+    "pretty:sf": "npm run pretty --workspace=apps/storefront",
+    "pretty:sfb": "npm run pretty --workspace=apps/storefront-builder",
+    "pretty:comp": "npm run pretty --workspace=lib/components",
+    "docker:build:sf": "docker build -f apps/storefront/Dockerfile -t web-sf .",
+    "docker:build:sfb": "docker build -f apps/storefront-builder/Dockerfile -t web-sfb .",
+    "docker:run:sf": "docker run -d -p 5000:5000 --env-file apps/storefront/.env --name web-sf-runner web-sf",
+    "docker:run:sfb": "docker run -d -p 8000:8000 --env-file apps/storefront-builder/.env --name web-sfb-runner web-sfb",
+    "sb": "npm run storybook --workspace=lib/components",
+    "prepare": "husky || true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "workspaces": [
+    "apps/*",
+    "lib/*"
+  ],
+  "devDependencies": {
+    "husky": "^9.1.5"
+  },
+  "dependencies": {
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/mixpanel-browser": "^2.60.0",
+    "antd": "^5.23.1",
+    "antd-img-crop": "^4.25.0",
+    "axios": "^1.7.9",
+    "gsap": "^3.12.7",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.2.0",
+    "mixpanel-browser": "^2.64.0",
+    "react-datepicker": "^7.4.0",
+    "react-fast-marquee": "^1.6.5",
+    "react-image-crop": "^11.0.7",
+    "react-intersection-observer": "^9.16.0",
+    "tailwind-merge": "^3.3.1"
+  }
+}

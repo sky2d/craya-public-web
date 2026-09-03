@@ -1,3 +1,4 @@
+import { getEnvConfig } from "components/src/utils/env/envConfig";
 import { useRouter } from "next/navigation";
 import { SuperTokensConfig } from "supertokens-auth-react/lib/build/types";
 import Passwordless from "supertokens-auth-react/recipe/passwordless";
@@ -12,11 +13,13 @@ export function setRouter(router: ReturnType<typeof useRouter>, pathName: string
 }
 
 export const frontendConfig = (): SuperTokensConfig => {
+  const { websiteDomain, apiDomain } = getEnvConfig();
+
   return {
     appInfo: {
       appName: "Kraya Storefront Builder",
-      apiDomain: process.env.NEXT_PUBLIC_WEB_DOMAIN || "http://localhost:3000",
-      websiteDomain: process.env.NEXT_PUBLIC_WEB_DOMAIN || "http://localhost:3000",
+      apiDomain,
+      websiteDomain,
       apiBasePath: "/auth",
       websiteBasePath: "/auth",
     },

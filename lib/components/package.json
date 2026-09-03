@@ -12,6 +12,7 @@
     "@egjs/flicking-plugins": "^4.7.1",
     "@egjs/react-flicking": "^4.11.3",
     "@tailwindcss/typography": "^0.5.13",
+    "mixpanel-browser": "^2.82.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",

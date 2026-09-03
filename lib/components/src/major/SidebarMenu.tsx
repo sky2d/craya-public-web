@@ -27,6 +27,8 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({ items, iconSize = 18, 
 
     if (item.customClick) {
       item.customClick();
+    } else if (item.basePath.startsWith("http://") || item.basePath.startsWith("https://")) {
+      window.open(item.basePath, "_blank");
     } else if (item.target === "domain") {
       navigateToPath(item.basePath);
     } else {

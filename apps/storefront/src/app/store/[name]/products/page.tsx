@@ -5,7 +5,6 @@ import { SimpleProduct } from "components/src/interfaces";
 import { getBestSellingProduct, getNewArrivalProduct, searchProducts, searchProductsByTag } from "components/src/services/api";
 import dynamic from "next/dynamic";
 
-const ErrorPage = dynamic(() => import("components/src/module/ErrorPage").then(mod => mod.ErrorPage), { ssr: false });
 
 const AllProduct = dynamic(() => import("./AllProducts"), {
   ssr: true,

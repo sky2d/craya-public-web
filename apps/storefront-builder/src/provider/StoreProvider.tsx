@@ -167,6 +167,12 @@ export const StoreProvider = ({ children, initialStoreData }: StoreProviderProps
         const { data, error } = await fetchStores();
         if (data && data.length > 0) {
           setStore(data[0]);
+          if (data[0].addresses && data[0].addresses.length > 0) {
+            setStorePickupAddress(data[0].addresses[0]);
+          }
+          if (data[0].socials) {
+            setStoreSocials({ ...initialSocialContacts, ...data[0].socials });
+          }
           currentStoreId = data[0].id;
         } else if (error) {
           console.error("Failed to fetch stores:", error);

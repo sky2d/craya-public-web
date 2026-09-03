@@ -11,7 +11,7 @@ import { validateUserProfileFields } from "@/services/validators/user/user.valid
 import { Policies } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { Button2, showPopup } from "components/src/minor";
-import { createPickupAddress, createPolicy, updatePolicy, updateStore } from "components/src/services/api";
+import { createPickupAddress, updatePickupAddress, createPolicy, updatePolicy, updateStore } from "components/src/services/api";
 import { updateBankDetailsUser, updateUserProfile } from "components/src/services/api/user";
 import { formatToISODate } from "components/src/utils/date";
 import { usePathname } from "next/navigation";
@@ -91,12 +91,23 @@ const UserActions: React.FC<HeaderActionsBarProps> = ({ text, showCancelButton =
         setStorePickupError(addressErrors);
         if (addressErrors || !store?.id) return;
 
-        const { data, error } = await createPickupAddress(store.id, storePickupAddress);
-        if (!data || error) {
-          showPopup("error", "Failed to create pickup address. Please try again.");
-          return;
+        if (storePickupAddress.id) {
+          const { data, error } = await updatePickupAddress(store.id, storePickupAddress.id, storePickupAddress);
+          if (!data || error) {
+            showPopup("error", "Failed to update pickup address. Please try again.");
+            return;
+          }
+          setStorePickupAddress(data[0]);
+          showPopup("success", "Address updated successfully");
+        } else {
+          const { data, error } = await createPickupAddress(store.id, storePickupAddress);
+          if (!data || error) {
+            showPopup("error", "Failed to create pickup address. Please try again.");
+            return;
+          }
+          setStorePickupAddress(data[0]);
+          showPopup("success", "Address created successfully");
         }
-        setStorePickupAddress(data[0]);
       } else if (step === 4) {
         if (!selectedPolicy) return;
 

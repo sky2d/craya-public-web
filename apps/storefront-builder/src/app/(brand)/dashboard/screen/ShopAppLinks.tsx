@@ -34,8 +34,11 @@ const ShopAppLinks = () => {
 
     if (!store.url) {
       const response = await getStorefrontLink(store.id!);
-      if (response.data) {
+      if (response.error || !response.data) {
+        showPopup("error", "Failed to generate link. Please try again.");
+      } else if (response.data) {
         setStoreLink(response.data);
+        showPopup("success", "Store link generated successfully!");
       }
     }
   };

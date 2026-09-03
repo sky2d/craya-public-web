@@ -11,7 +11,7 @@ import { validateUserProfileFields } from "@/services/validators/user/user.valid
 import { Policies } from "components/src/interfaces";
 import { ButtonType } from "components/src/interfaces/Buttons";
 import { Button2, showPopup } from "components/src/minor";
-import { createPickupAddress, updatePickupAddress, createPolicy, updatePolicy, updateStore } from "components/src/services/api";
+import { createPickupAddress, createPolicy, updatePickupAddress, updatePolicy, updateStore } from "components/src/services/api";
 import { updateBankDetailsUser, updateUserProfile } from "components/src/services/api/user";
 import { formatToISODate } from "components/src/utils/date";
 import { usePathname } from "next/navigation";

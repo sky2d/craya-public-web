@@ -187,7 +187,7 @@ export const LoopDetail: React.FC<LoopDetailProps> = ({ loop, onClose }) => {
               {selectedLoop.products?.map(product => (
                 <label key={product.id} className="flex cursor-pointer items-center">
                   <div
-                    className="mr-3 flex h-6 w-6 items-center justify-center rounded-md border-2 transition-all border-brand-color1 bg-brand-color1"
+                    className="mr-3 flex h-6 w-6 items-center justify-center rounded-md border-2 border-brand-color1 bg-brand-color1 transition-all"
                     onClick={() => handleProductClick(product)}
                   >
                     <svg className="h-4 w-4 text-white-light4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

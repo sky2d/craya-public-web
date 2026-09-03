@@ -3,7 +3,6 @@ import { useStoreContext } from "@/provider/StoreProvider";
 import { logout } from "@/services/auth/signOut";
 import { sidebarConfig } from "@/utils/sidebarConfig";
 import { Layout } from "antd";
-const { Sider } = Layout;
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -12,6 +11,7 @@ import ChevronDown from "../../assets/icons/ChevronDown.svg?component";
 import Home from "../../assets/icons/Home.svg?component";
 import Logout from "../../assets/icons/Logout.svg?component";
 import { SidebarItem } from "./SidebarItem";
+const { Sider } = Layout;
 
 export const MenuScreen = () => {
   const router = useRouter();

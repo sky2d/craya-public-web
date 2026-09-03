@@ -13,15 +13,31 @@ export const handleProductsPress = (
 ) => {
   if (products.length > 0) {
     handleUpdateSearchedProduct(products);
+
+    let basePath = "";
+    if (typeof window !== "undefined") {
+      const storeMatch = window.location.pathname.match(/^\/store\/([^/]+)/);
+      if (storeMatch) {
+        basePath = `/store/${storeMatch[1]}`;
+      }
+    }
+
     if (component) {
-      router.push(`/products?component=${component}`);
+      router.push(`${basePath}/products?component=${component}`);
     } else {
-      router.push(`/products`);
+      router.push(`${basePath}/products`);
     }
   }
 };
 
 export const handleProductPress = (router: AppRouterInstance, url: string) => {
+  if (typeof window !== "undefined") {
+    const storeMatch = window.location.pathname.match(/^\/store\/([^/]+)/);
+    if (storeMatch && !url.startsWith("/store/")) {
+      router.push(`/store/${storeMatch[1]}${url}`);
+      return;
+    }
+  }
   router.push(url);
 };
 

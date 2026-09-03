@@ -1,6 +1,7 @@
 "use client";
 
 import { CrayLinks, SellerSideLinks } from "@/constants/NavigationLinks";
+import { useModalContext } from "@/provider/ModalProvider";
 import { useProductContext } from "@/provider/ProductProvider";
 import { useStoreContext } from "@/provider/StoreProvider";
 import { useUserContext } from "@/provider/UserProvider";
@@ -8,11 +9,11 @@ import { Loader } from "@/utils/loader";
 import { FloatButton } from "antd";
 import LogoStripe from "components/src/icons/iconFiles/TApe.svg";
 import KrayaLogo from "components/src/icons/iconFiles/WhiteLogo.svg";
-import { navigateToPath } from "components/src/utils/domain";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useSessionContext } from "supertokens-auth-react/recipe/session";
 
 export const StoreFooter = () => {
   const pathname = usePathname();
@@ -20,6 +21,9 @@ export const StoreFooter = () => {
   const { isGlobal } = useUserContext();
   const { storeDetails } = useStoreContext();
   const { tags } = useProductContext();
+  const session = useSessionContext();
+  const isLoggedIn = !session.loading && session.doesSessionExist;
+  const { openModal } = useModalContext();
 
   const [loading, setLoading] = useState(false);
 

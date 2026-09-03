@@ -9,8 +9,8 @@ import { ButtonType } from "components/src/interfaces/Buttons";
 import ImageSkeletonLoader from "components/src/major/ImageSkeletonLoader";
 import { SidebarMenu } from "components/src/major/SidebarMenu";
 import { Button2 } from "components/src/minor";
-import { navigateToPath } from "components/src/utils/domain";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineCancel } from "react-icons/md";
@@ -22,6 +22,7 @@ type SideBarProps = {
 };
 
 export const SideBar = ({ isOpen, closeSidebar }: SideBarProps) => {
+  const router = useRouter();
   const session = useSessionContext();
   const { user, loading, isGlobal } = useUserContext();
   const { storeDetails } = useStoreContext();

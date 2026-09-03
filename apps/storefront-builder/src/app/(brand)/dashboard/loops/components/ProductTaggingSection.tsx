@@ -22,13 +22,20 @@ export const ProductTaggingSection: React.FC<ProductTaggingSectionProps> = ({ lo
 
       <div className="space-y-3">
         <h3 className="text-gray-800 mb-4 text-lg font-medium">Tagged Products</h3>
-        {products.length > 0 ? (
-          products.map(product => (
-            <div key={product.id} className="flex items-center space-x-3">
-              <div className="bg-gray-200 h-6 w-6 flex-shrink-0 rounded"></div>
-              <span className="text-gray-600 text-xs">{product.name}</span>
-            </div>
-          ))
+        {loop.products && loop.products.length > 0 ? (
+          loop.products.map(product => {
+            const imageUrl = product.image?.fileUrl || product.productSKUs?.[0]?.images?.[0]?.fileUrl;
+            return (
+              <div key={product.id} className="flex items-center space-x-3">
+                {imageUrl ? (
+                  <img src={imageUrl} alt={product.name} className="h-6 w-6 flex-shrink-0 rounded object-cover" />
+                ) : (
+                  <div className="bg-gray-200 h-6 w-6 flex-shrink-0 rounded"></div>
+                )}
+                <span className="text-gray-600 text-xs">{product.name}</span>
+              </div>
+            );
+          })
         ) : (
           <p className="text-gray-400 text-xs">No products tagged.</p>
         )}

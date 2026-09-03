@@ -8,6 +8,7 @@ import { debounce } from "@/utils/generic";
 import { ButtonType, IconPosition } from "components/src/interfaces/Buttons";
 import { Button, Button2, showPopup } from "components/src/minor";
 import { navigateToPath } from "components/src/utils/domain";
+import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo, useState } from "react";
 import { BsCart2 } from "react-icons/bs";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
@@ -22,6 +23,7 @@ interface ProductActionButtonsProps {
 }
 
 const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({ onLike, primaryColor, disabled, isOutOfStock, isLiked }) => {
+  const router = useRouter();
   const { cart, addToCart, selectedCartItem, setCartLoading } = useCartContext();
   const { openModal } = useModalContext();
   const [isAddedToCartModalOpen, setIsAddedToCartModalOpen] = useState<boolean>(false);
@@ -38,7 +40,7 @@ const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({ onLike, pri
         addToCart(updatedCart);
 
         if (redirectToCart) {
-          navigateToPath("/cart");
+          router.push("/cart");
         } else {
           setIsAddedToCartModalOpen(true);
         }

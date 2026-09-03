@@ -116,7 +116,7 @@ export const SideBar = ({ isOpen, closeSidebar }: SideBarProps) => {
                   <div
                     onClick={() => {
                       closeSidebar();
-                      navigateToPath("/auth");
+                      router.push("/auth");
                     }}
                     className="w-full"
                   >

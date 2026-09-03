@@ -6,6 +6,7 @@ import { BaseModal } from "components/src/major/BaseModal";
 import { showPopup } from "components/src/minor";
 import { navigateToPath } from "components/src/utils/domain";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import LoginCard from "../auth/LoginCard";
 import OtpCard from "../auth/VerifyOtpCard";
@@ -17,6 +18,7 @@ interface AddedToCartModalProps {
 }
 
 export const LoginInSignUpModel: FC<AddedToCartModalProps> = ({ isOpen, onClose, loginImage }) => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [error, setError] = useState("");
@@ -55,7 +57,7 @@ export const LoginInSignUpModel: FC<AddedToCartModalProps> = ({ isOpen, onClose,
   };
 
   const handelGoogleLogin = () => {
-    navigateToPath("/auth");
+    router.push("/auth");
   };
 
   const handleSubmitOtp = async (otp: string[], event: React.FormEvent) => {

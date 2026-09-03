@@ -53,8 +53,16 @@ export const StoreFooter = () => {
   const socials = storeDetails?.socials;
 
   const handleNavigation = (path: string, link: string, section: { title: string; links: { name: string; path: string }[] }, external: boolean) => {
+    if (path === "/cart" || path === "/wishlist") {
+      if (!isLoggedIn) {
+        openModal("login");
+      } else {
+        router.push(path);
+      }
+      return;
+    }
     if (external) {
-      navigateToPath(path);
+      router.push(path);
       return;
     }
     if (section.title === "Shop") {
@@ -248,7 +256,7 @@ export const StoreFooter = () => {
                           </a>
                         ) : (
                           <button
-                            onClick={() => navigateToPath(link.path)}
+                            onClick={() => router.push(link.path)}
                             className="m-0 block w-full border-none bg-transparent p-0 text-left text-white-light4 hover:underline hover:underline-offset-4"
                           >
                             {link.name}

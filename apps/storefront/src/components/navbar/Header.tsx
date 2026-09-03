@@ -51,8 +51,8 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
       openModal("login");
       return;
     }
-    navigateToPath("/cart");
-  }, [session, openModal]);
+    router.push("/cart");
+  }, [session, openModal, router]);
 
   const handleSearchClick = useCallback(() => {
     if (!session.loading && !session.doesSessionExist) {
@@ -67,8 +67,8 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
       openModal("login");
       return;
     }
-    navigateToPath("/wishlist");
-  }, [session, openModal]);
+    router.push("/wishlist");
+  }, [session, openModal, router]);
 
   const handleLogoClick = useCallback(() => {
     router.push("/");

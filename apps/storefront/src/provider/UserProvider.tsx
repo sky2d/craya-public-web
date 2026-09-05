@@ -121,12 +121,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   }, [session.loading, !session.loading && session.doesSessionExist]);
 
   useEffect(() => {
-    try {
-      const { subdomain } = getEnvironmentInfo();
-      setIsGlobal(!subdomain);
-    } catch (error) {
-      setIsGlobal(true);
-    }
+    setIsGlobal(true);
   }, []);
 
   const value: UserContextType = {

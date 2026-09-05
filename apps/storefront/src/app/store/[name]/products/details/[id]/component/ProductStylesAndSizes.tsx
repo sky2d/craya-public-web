@@ -58,10 +58,7 @@ const ProductStylesAndSizes: React.FC<ProductStylesAndSizesProps> = ({
   const handleShare = useCallback((product: Product) => {
     const shareText = `Check out this product: ${product.name}`;
 
-    const { baseDomain, port, subdomain, protocol } = getEnvironmentInfo();
-
-    const domain = subdomain ? `${subdomain}.${baseDomain}` : `${baseDomain}`;
-    const shareUrl = `${protocol}://${domain}${port}/products/details/${product.id}`;
+    const shareUrl = window.location.href;
 
     if (navigator.share) {
       navigator

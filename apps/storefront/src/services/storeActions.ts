@@ -86,10 +86,9 @@ export const handleShare = async (link: string, storeId?: string) => {
     return;
   }
 
-  const { isLocal, baseDomain, port, subdomain, protocol } = getEnvironmentInfo();
-
-  const domain = `${protocol}://${subdomain ? `${subdomain}.${baseDomain}` : baseDomain}`;
-  const shareUrl = `${domain}${port}/videos?storeId=${storeId}&reel=${encodeURIComponent(link)}`;
+  const { isLocal } = getEnvironmentInfo();
+  const domain = window.location.origin;
+  const shareUrl = `${domain}/videos?storeId=${storeId}&reel=${encodeURIComponent(link)}`;
 
   try {
     await navigator.clipboard.writeText(shareUrl);

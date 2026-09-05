@@ -7,6 +7,7 @@ import { useModalContext } from "@/provider/ModalProvider";
 import { Store } from "components/src/interfaces";
 import { NavBar } from "components/src/major/NavBar";
 import { Overlay } from "components/src/major/wrapper/Overlay";
+import { getEnvConfig } from "components/src/utils/env/envConfig";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
@@ -32,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
       return path === "/" || path === "/auth" || path === "/contact";
     }
 
-    return path === "/videos";
+    return path === "/videos" || path.endsWith("/videos");
   }, [pathname, isRootDomain]);
 
   const closeAll = useCallback(() => {
@@ -50,8 +51,12 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
       openModal("login");
       return;
     }
-    router.push("/cart");
-  }, [session, openModal, router]);
+    if (isRootDomain) {
+      router.push("/cart");
+    } else {
+      window.location.href = `${getEnvConfig().websiteDomain}/cart`;
+    }
+  }, [session, openModal, router, isRootDomain]);
 
   const handleSearchClick = useCallback(() => {
     if (!session.loading && !session.doesSessionExist) {
@@ -66,12 +71,20 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
       openModal("login");
       return;
     }
-    router.push("/wishlist");
-  }, [session, openModal, router]);
+    if (isRootDomain) {
+      router.push("/wishlist");
+    } else {
+      window.location.href = `${getEnvConfig().websiteDomain}/wishlist`;
+    }
+  }, [session, openModal, router, isRootDomain]);
 
   const handleLogoClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
+    if (isRootDomain) {
+      router.push("/");
+    } else {
+      router.push("/");
+    }
+  }, [router, isRootDomain]);
 
   const navbarImageUrl = useMemo(() => {
     if (isRootDomain) {
@@ -96,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
 
       <SearchComponent isSearchDropdownOpen={isSearchDropdownOpen} closeDropdown={() => setIsSearchDropdownOpen(false)} />
 
-      <SideBar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+      <SideBar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} isRootDomain={isRootDomain} />
     </div>
   );
 };

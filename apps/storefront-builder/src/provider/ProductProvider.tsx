@@ -108,7 +108,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     _setSelectedProduct(product);
     if (product != null && product.id) {
       _setIsSelectedProductChanged(changed);
-      setIsProductInfoChanged(true);
+      setIsProductInfoChanged(changed);
     }
   };
 

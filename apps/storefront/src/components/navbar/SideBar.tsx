@@ -10,7 +10,7 @@ import ImageSkeletonLoader from "components/src/major/ImageSkeletonLoader";
 import { SidebarMenu } from "components/src/major/SidebarMenu";
 import { Button2 } from "components/src/minor";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineCancel } from "react-icons/md";
@@ -19,10 +19,18 @@ import { useSessionContext } from "supertokens-auth-react/recipe/session";
 type SideBarProps = {
   isOpen: boolean;
   closeSidebar: () => void;
+  isRootDomain?: boolean;
 };
 
-export const SideBar = ({ isOpen, closeSidebar }: SideBarProps) => {
+export const SideBar = ({ isOpen, closeSidebar, isRootDomain }: SideBarProps) => {
   const router = useRouter();
+  const pathname = usePathname();
+  let storePrefix = "";
+  if (pathname.startsWith("/store/")) {
+    storePrefix = `/store/${pathname.split("/")[2]}`;
+  } else if (pathname.startsWith("/shop-local")) {
+    storePrefix = `/shop-local`;
+  }
   const session = useSessionContext();
   const { user, loading, isGlobal } = useUserContext();
   const { storeDetails } = useStoreContext();
@@ -130,12 +138,12 @@ export const SideBar = ({ isOpen, closeSidebar }: SideBarProps) => {
 
             <SidebarMenu
               items={[
-                { label: "Home", basePath: "/", show: !isGlobal, target: "subdomain" },
-                { label: "Videos", basePath: `/videos?storeId=${storeDetails?.id}`, show: !isGlobal, target: "subdomain" },
-                { label: "Orders", basePath: "/orders", show: true, target: "domain" },
-                { label: "Edit Profile", basePath: "/edit-user-profile", show: true, target: "domain" },
+                { label: "Home", basePath: `${storePrefix}/`, show: !isGlobal, target: "subdomain" },
+                { label: "Videos", basePath: `${storePrefix}/videos?storeId=${storeDetails?.id}`, show: !isGlobal, target: "subdomain" },
+                { label: "Orders", basePath: "/orders", show: session.doesSessionExist, target: "domain" },
+                { label: "Edit Profile", basePath: "/edit-user-profile", show: session.doesSessionExist, target: "domain" },
                 { label: "About Us", basePath: "/aboutUs", show: isGlobal, target: "domain" },
-                { label: "About Store", basePath: "/about", show: !isGlobal, target: "subdomain" },
+                { label: "About Store", basePath: `${storePrefix}/about`, show: !isGlobal, target: "subdomain" },
               ]}
               iconSize={20}
               highlightColor="#000000"

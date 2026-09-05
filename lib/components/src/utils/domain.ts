@@ -26,9 +26,10 @@ export function getEnvironmentInfo() {
 }
 
 export function navigateToPath(path: string) {
-  const { protocol, port, baseDomain } = getEnvironmentInfo();
+  const { baseDomain } = getEnvironmentInfo();
+  const { websiteDomain } = getEnvConfig();
 
-  const destinationUrl = new URL(`${protocol}://${baseDomain}${port}${path}`);
+  const destinationUrl = new URL(path, websiteDomain).toString();
   const currentUrl = window.location.href;
 
   const cookieDomain = `domain=.${baseDomain};`;
@@ -36,7 +37,7 @@ export function navigateToPath(path: string) {
   document.cookie = `from=${encodeURIComponent(currentUrl)}; path=/; ${cookieDomain} SameSite=Lax`;
 
   // Redirect
-  window.location.href = destinationUrl.toString();
+  window.location.href = destinationUrl;
 }
 
 export function getFromParamOrCookie(): string | null {

@@ -52,7 +52,7 @@ export const StoreFooter = () => {
     return { ...section, links: updatedLinks };
   });
 
-  const showFooter = (isGlobal && pathname !== "/" && pathname !== "/auth") || (!isGlobal && pathname !== `/videos`);
+  const showFooter = (isGlobal && pathname !== "/" && pathname !== "/auth") || (!isGlobal && pathname !== `/videos` && !pathname.endsWith(`/videos`));
 
   const socials = storeDetails?.socials;
 

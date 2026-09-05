@@ -166,7 +166,7 @@ export const StoreProvider = ({ children, initialStoreData }: StoreProviderProps
         setStoreLoading(true);
         const { data, error } = await fetchStores();
         if (data && data.length > 0) {
-          setStore(data[0]);
+          setStore(data[0], false);
           if (data[0].addresses && data[0].addresses.length > 0) {
             setStorePickupAddress(data[0].addresses[0]);
           }

@@ -32,7 +32,7 @@ export const SidebarMenu: React.FC<SidebarMenuProps> = ({ items, iconSize = 18, 
     } else if (item.target === "domain") {
       navigateToPath(item.basePath);
     } else {
-      router.push(item.basePath);
+      window.location.href = item.basePath;
     }
   };
 

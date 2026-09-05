@@ -34,7 +34,7 @@ export const frontendConfig = (): SuperTokensConfig => {
         },
       }),
       Session.init({
-        tokenTransferMethod: "header",
+        tokenTransferMethod: "cookie",
         sessionTokenFrontendDomain: getEnvConfig().sessionTokenFrontendDomain,
       }),
     ],

@@ -55,7 +55,7 @@ export const MenuScreen = () => {
 
   const handleLogout = async () => {
     await logout();
-    router.push("/login");
+    router.push("/auth");
   };
 
   const handleMouseEnter = () => setCollapsed(false);

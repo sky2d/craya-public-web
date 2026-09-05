@@ -1,11 +1,12 @@
 import { showPopup } from "components/src/minor";
+import { getEnvConfig } from "components/src/utils/env/envConfig";
 import { getAuthorisationURLWithQueryParamsAndSetState } from "supertokens-web-js/recipe/thirdparty";
 
 export async function GoogleSignInClicked() {
   try {
     const authUrl = await getAuthorisationURLWithQueryParamsAndSetState({
       thirdPartyId: "google",
-      frontendRedirectURI: `${process.env.NEXT_PUBLIC_WEB_DOMAIN}/auth/callback/google`,
+      frontendRedirectURI: `${getEnvConfig().websiteDomain}/auth/callback/google`,
     });
     window.location.assign(authUrl);
   } catch (e) {

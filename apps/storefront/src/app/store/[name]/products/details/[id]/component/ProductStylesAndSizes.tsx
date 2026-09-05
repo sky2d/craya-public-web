@@ -3,7 +3,6 @@
 import Share from "components/src/icons/iconFiles/Share.svg?component";
 import { CreateProductSku, Product, ProductSKU } from "components/src/interfaces/product";
 import { showPopup } from "components/src/minor/Popups";
-import { getEnvironmentInfo } from "components/src/utils/domain";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import React, { useCallback, useMemo, useState } from "react";

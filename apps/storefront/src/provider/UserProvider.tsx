@@ -3,7 +3,6 @@ import { Address, AddressError, User, UserError, Wishlist } from "components/src
 import { getWishlists } from "components/src/services/api";
 import { getUser } from "components/src/services/api/user";
 import { formatISOToNormalDate } from "components/src/utils/date";
-import { getEnvironmentInfo } from "components/src/utils/domain";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { useSessionContext } from "supertokens-auth-react/recipe/session";
 

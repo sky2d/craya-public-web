@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function middleware() {
   // Since we are not using subdomains, we can just pass-through everything.
   // All routing is handled by standard Next.js path-based routes (e.g. /store/[name]).
   return NextResponse.next();

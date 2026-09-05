@@ -109,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({ storeDetails, isRootDomain }) => {
 
       <SearchComponent isSearchDropdownOpen={isSearchDropdownOpen} closeDropdown={() => setIsSearchDropdownOpen(false)} />
 
-      <SideBar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} isRootDomain={isRootDomain} />
+      <SideBar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
     </div>
   );
 };

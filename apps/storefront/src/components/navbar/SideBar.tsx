@@ -10,7 +10,7 @@ import ImageSkeletonLoader from "components/src/major/ImageSkeletonLoader";
 import { SidebarMenu } from "components/src/major/SidebarMenu";
 import { Button2 } from "components/src/minor";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineCancel } from "react-icons/md";
@@ -19,10 +19,9 @@ import { useSessionContext } from "supertokens-auth-react/recipe/session";
 type SideBarProps = {
   isOpen: boolean;
   closeSidebar: () => void;
-  isRootDomain?: boolean;
 };
 
-export const SideBar = ({ isOpen, closeSidebar, isRootDomain }: SideBarProps) => {
+export const SideBar = ({ isOpen, closeSidebar }: SideBarProps) => {
   const router = useRouter();
   const pathname = usePathname();
   let storePrefix = "";

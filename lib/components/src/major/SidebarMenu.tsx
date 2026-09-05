@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import React, { cloneElement } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { navigateToPath } from "../utils/domain";
@@ -19,7 +18,6 @@ type SidebarMenuProps = {
 };
 
 export const SidebarMenu: React.FC<SidebarMenuProps> = ({ items, iconSize = 18, highlightColor = "#7C54E9", onItemClick }) => {
-  const router = useRouter();
   const visibleItems = items.filter(item => item.show);
 
   const handleClick = (item: SidebarItem) => {

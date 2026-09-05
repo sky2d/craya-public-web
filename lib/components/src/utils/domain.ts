@@ -6,18 +6,9 @@ export function getEnvironmentInfo() {
 
   const isLocalhost = hostname.includes("localhost") || hostname.includes(".local");
 
-  const parts = hostname.split(".");
-  let subdomain = "";
-
-  // abc.craya.shop → parts.length = 3
-  // abc.craya.local → parts.length = 3
-
-  subdomain = parts[0].toLowerCase();
-
   return {
     environment,
     isLocal: isLocalhost,
-    subdomain,
     protocol: isLocalhost ? "http" : "https",
     port: isLocalhost ? ":3000" : "",
     baseDomain: baseDomain,

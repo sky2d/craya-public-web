@@ -7,12 +7,16 @@ type Props = Parameters<typeof SessionAuth>[0] & {
   children?: React.ReactNode | undefined;
 };
 
+import { getEnvConfig } from "components/src/utils/env/envConfig";
+
 const AuthRedirector = ({ children }: { children: React.ReactNode }) => {
   const sessionContext = useSessionContext();
 
   useEffect(() => {
     if (!sessionContext.loading && !sessionContext.doesSessionExist) {
-      window.location.href = "/auth";
+      if (window.location.pathname !== "/auth") {
+        window.location.href = `${getEnvConfig().websiteDomain}/auth`;
+      }
     }
   }, [sessionContext]);
 
